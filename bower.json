@@ -1,0 +1,26 @@
+{
+  "name": "webComponents",
+  "version": "0.0.1",
+  "authors": [
+    "Jihann <1244098192@qq.com>"
+  ],
+  "description": "webComponents",
+  "keywords": [
+    "css",
+    "js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery-ui": "jqueryui#~1.11.4",
+    "requirejs": "~2.1.20"
+  }
+}
