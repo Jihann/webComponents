@@ -1,7 +1,7 @@
 /**
  * Created by Jihann on 2015/9/17.
  */
-define(['jquery', 'jqueryUI'], function($, $UI) {
+define(['widget', 'jquery', 'jqueryUI'], function(widget, $, $UI) {
    function Window() {
         this.options = {
             width : 500,
@@ -17,20 +17,20 @@ define(['jquery', 'jqueryUI'], function($, $UI) {
             handler4AlertBtn : null,
             handler4CloseBtn : null
         };
-        this.handlers = {
+       this.handlers = {
 
-        };
+       };
    }
-   Window.prototype = {
+   Window.prototype = $.extend({}, new widget.Widget(), {
        alert: function(options) {
            var CFG = $.extend(this.options, options);
 
            var boundingBox = $('<div class="window_boundingBox">' +
-               '<div class="window_header">' + CFG.title + '</div>' +
-               '<div class="window_body">' + CFG.msg + '</div>' +
-               '<div class="window_footer">' +
-                    '<input class="window_alertBtn" type="button" value="' + CFG.text4AlertBtn + '">' +
-               '</div>' +
+           '<div class="window_header">' + CFG.title + '</div>' +
+           '<div class="window_body">' + CFG.msg + '</div>' +
+           '<div class="window_footer">' +
+           '<input class="window_alertBtn" type="button" value="' + CFG.text4AlertBtn + '">' +
+           '</div>' +
            '</div>');
            var btn = boundingBox.find(".window_alertBtn");
            var mask = null;
@@ -78,10 +78,10 @@ define(['jquery', 'jqueryUI'], function($, $UI) {
            }
 
            if (CFG.handler4AlertBtn) {
-               this.on('alert', CFG.handler4AlertBtn);
+               that.on('alert', CFG.handler4AlertBtn);
            };
            if (CFG.handler4CloseBtn) {
-               this.on('close', CFG.handler4CloseBtn);
+               that.on('close', CFG.handler4CloseBtn);
            };
            //用于实现连缀语法
            return this;
@@ -91,24 +91,8 @@ define(['jquery', 'jqueryUI'], function($, $UI) {
        },
        prompt: function() {
 
-       },
-       //自定义事件
-       on : function(type, handler) {
-           if (typeof this.handlers[type] === 'undefined') {
-               this.handlers[type] = [];
-           }
-           this.handlers[type].push(handler);
-           return this;
-       },
-       fire : function(type, data){
-           if (this.handlers[type] instanceof Array) {
-               var handlers = this.handlers[type];
-               for(var i = 0, len = handlers.length; i < len; i++){
-                   handlers[i](data);
-               }
-           };
        }
-   }
+   });
    return {
        Window: Window
    }
