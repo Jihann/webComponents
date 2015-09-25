@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/carousel.js"></script>
+    <script type="text/javascript">
+        jQuery(function() {
+            //var carousel = new Carousel($(".J_Poster").eq(0));
+
+            //这个插件未做完
+            var settings = {
+                width : 1000,
+                height : 270,
+                posterWidth : 640,
+                posterHeight : 270,
+                scale : 0.9,
+                verticalAlign : "middle",
+                speed : 500
+            };
+            Carousel.init(jQuery(".J_Poster"));
+        });
+    </script>
+</head>
+<body>
+<div class="J_Poster poster-main" data-settings='{
+                                                "width" : 800,
+                                                "height" : 270,
+                                                "posterWidth" : 640,
+                                                "posterHeight" : 270,
+                                                "scale" : 0.9,
+                                                "verticalAlign" : "middle",
+                                                "speed" : 500
+                                                }'>
+    <div class="poster-btn poster-prev-btn"><</div>
+    <ul class="poster-list">
+        <li class="poster-item"><a href="#"><img src="images/1.jpg" width="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="images/2.jpg" width="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="images/3.jpg" width="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="images/4.jpg" width="100%"></a></li>
+        <li class="poster-item"><a href="#"><img src="images/5.jpg" width="100%"></a></li>
+    </ul>
+    <div class="poster-btn poster-next-btn">></div>
+</div>
+</body>
+</html>
