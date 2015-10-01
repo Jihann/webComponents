@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+<body>
+<div id="tip">dfafdafdsf</div>
+<ul id="list-node"></ul>
+<div id="test">test</div>
+<script>
+
+    //文档片段节点，临时占位符
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < 10; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = "List item " + i;
+        frag.appendChild(li);
+    }
+    document.getElementById("list-node").appendChild(frag);
+
+    //元素节点
+    var divNode = document.getElementById("tip");
+    if (divNode.nodeType === Node.ELEMENT_NODE || divNode.nodeType === 1) {//IE没内置
+        //alert(1);
+    }
+    console.log(divNode.nodeName + " " + divNode.nodeValue);
+
+    //属性节点
+    var attrNode = divNode.attributes[0];
+    console.log(attrNode.nodeName + " " + attrNode.nodeValue);
+
+    //文本节点
+    var textNode = divNode.childNodes[0];
+    console.log(textNode.nodeName + " " + textNode.nodeValue);
+
+    //判断是否是元素节点
+    var isElement = function(el) {
+        return !!el && el.nodeType === 1;
+    }
+    console.log(isElement(document.getElementById("test")));
+    console.log(isElement(document.getElementById("test").nextSibling));
+</script>
+</body>
+</html>

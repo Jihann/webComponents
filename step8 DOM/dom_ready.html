@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/reset.css">
+    <link type="text/css" rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/domReady.js"></script>
+    <script>
+       //setTimeout(function() {
+           //document.getElementById('header').style.color = "red";
+       //}, 3000);
+        //window.onload = function() {
+            //document.getElementById('header').style.color = "red";
+        //}
+        //myReady(function() {
+            //document.getElementById('header').style.color = "red";
+       // });
+    </script>
+</head>
+<body>
+<h1 id="header"> welcome world   </h1>
+<div id="showMsg"></div>
+<div>
+    <img src="images/1.jpg"/>
+    <img src="images/2.jpg"/>
+    <img src="images/3.jpg"/>
+    <img src="images/4.jpg"/>
+    <img src="images/5.jpg"/>
+    <img src="images/6.jpg"/>
+</div>
+<script>
+    var doc = document;
+    var msg = doc.getElementById("showMsg");
+    var imgs = doc.getElementsByTagName("img");
+    var time1 = null, time2 = null;
+    myReady(function() {
+        msg.innerHTML += "dom已加载!<br>";
+        time1 = new Date().getTime();
+        msg.innerHTML += "时间戳：" + time1 + "<br>";
+    });
+    window.onload = function() {
+        msg.innerHTML += "onload已加载!<br>";
+        time2 = new Date().getTime();
+        msg.innerHTML += "时间戳：" + time2 + "<br>";
+        msg.innerHTML += "domReady比onload快：" + (time2 - time1);
+    }
+</script>
+</body>
+</html>
