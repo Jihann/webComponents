@@ -15,7 +15,7 @@
         //设置容器总宽度
         var boxWidth = imgWidth + (imgs.length - 1) * exposeWidth;
 
-        box.style.width = boxWidth + 'px';
+        box && box.style.width = boxWidth + 'px';
 
         //设置每道门的初试位置
         function setImgsPos() {
